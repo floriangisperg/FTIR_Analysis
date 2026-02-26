@@ -604,12 +604,12 @@ def plot_peak_areas_Gauss(x_data, y_raw, params, initial_guess, sample):
 
     # Calculate the area under each peak
     # Calculate the total area under the fitted composite spectrum
-    total_area = -np.trapz(total, x_data)
+    total_area = -np.trapezoid(total, x_data)
     # print("This is total_area: ", total_area)
     peak_percentages = []
     labels = []
     for peak, peak_values in peak_funcs.items():
-        area = -np.trapz(peak_values, x_data)
+        area = -np.trapezoid(peak_values, x_data)
         # print("This is ", peak, " Area", area)
         # Calculate the percentage of each peak's area relative to the total area
         peak_percentages.append(round(area / total_area * 100,2))
